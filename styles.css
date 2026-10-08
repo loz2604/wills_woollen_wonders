@@ -226,7 +226,7 @@ figure {
     flex: 100%;
     max-width: 100%;
   }
-    .my_header{
+    h1 {
         font-size: small;
   }
     .navbar ul li a {
