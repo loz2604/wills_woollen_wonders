@@ -1,0 +1,241 @@
+body{
+    background-color: rgb(235, 247, 243);
+    padding: 15px;
+    /*Required for border-image */
+    border: 20px solid transparent; 
+}
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+html::before {
+  content: "";
+  border: 15px solid rgb(96, 184, 108);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .25) inset;
+  height: 100vh;
+  pointer-events: none;
+  position: fixed;
+  width: 100vw;
+}
+html:after {
+  content: “”; /* Required for pseudos */
+  border: 15px solid rgb(96, 184, 108);
+  height: 100vh;
+  pointer-events: none;
+  width: 100vw;
+  z-index: 1;
+}  
+
+#my_header{
+    display: flex;
+    text-align: center;
+
+}
+#my_logo{
+  display: block;
+  margin-left: auto;
+  height: 20%;
+  padding-top: 10px;
+}
+h1{
+    font-weight: bold;
+    font-size: 300%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(96, 184, 108);
+    margin:20px;
+    padding:20px;  
+}
+h2{
+    /* font-size: 800; */
+    font-weight: bold;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(96, 184, 108);
+    margin:20px;
+    padding:20px;   
+}
+#intro{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(96, 184, 108);
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: rgb(96, 184, 108);
+    border-radius: 30px;
+}
+
+.navbar ul li {
+  float: left;
+}
+
+.navbar ul li a {
+  display: block;
+  color: rgb(235, 247, 243);
+  text-align: center;
+  padding: 14px 16px;
+  font-size: x-large;
+  text-decoration: none;
+  font-weight: bold;
+}
+.navbar a:hover {
+  color: rgb(96, 184, 108); /* Replace with your desired hover color */
+}
+
+/* Optional: Change the background color on hover */
+.navbar a:hover {
+  background-color: rgb(235, 247, 243);
+  border-radius: 30px;
+  transition: background-color 0.3s ease; /* Makes the color change smooth */
+}
+.carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 2rem;
+  list-style-type: none;
+  overflow-x: auto;
+
+  scroll-snap-type: x mandatory;
+
+  > li {
+    scroll-snap-align: center;
+    border: 5px solid rgb(96, 184, 108) ;
+    margin: auto;
+
+}
+}
+.carousel_pic {
+    height: 500px;   
+  }
+
+.carousel {
+  /* ... */
+  anchor-name: --carousel; /* define the anchor */
+}
+
+.carousel::scroll-button(*) {
+  position: fixed; /* set containment on the target */
+  position-anchor: --carousel; /* set the anchor */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+  margin:20px;
+  border-radius: 10%;
+  background-color: rgb(96, 184, 108);
+  border-color: rgb(96, 184, 108);
+  color: rgb(235, 247, 243);
+  padding: 10px;
+}
+
+.carousel::scroll-button(left) {
+  content: "<";
+  position-area: center left;
+}
+.carousel::scroll-button(right) {
+  content: ">";
+  position-area: center right;
+}
+.carousel::scroll-marker-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.carousel {
+  /* ... */
+  scroll-marker-group: after; /* displayed below the content */
+}
+.carousel {
+  /* ... */
+
+  > li::scroll-marker {
+    content: "";
+    aspect-ratio: 1;
+    border: 2px solid black;
+    border-radius: 100%;
+    height: 20px;
+    background-color: rgb(235, 247, 243);
+  }
+}
+li::scroll-marker:target-current {
+  background: rgb(96, 184, 108);
+  height:20px;
+}
+li::scroll-marker:hover,
+li::scroll-marker:focus-visible {
+  background:rgb(96, 184, 108);
+}
+
+.carousel {
+  /* ... */
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+  justify-content: center;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  border: 1px solid rgb(96, 184, 108);
+  box-shadow: 0 0 30px rgb(211, 211, 211);
+}
+
+figure {
+    /* border: 1px solid rgb(96, 184, 108); */
+    padding: 5px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+figure {
+    text-align: center;
+}
+figcaption {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color: rgb(96, 184, 108);
+}
+
+#large_pic{
+height: 500px;
+border: 1px solid rgb(96, 184, 108);
+}
