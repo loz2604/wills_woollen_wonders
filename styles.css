@@ -226,6 +226,12 @@ figure {
     flex: 100%;
     max-width: 100%;
   }
+        .my_header{
+        font-size: medium;
+  }
+    .navbar ul li a {
+  font-size: small;
+}
 }
 figure {
     text-align: center;
